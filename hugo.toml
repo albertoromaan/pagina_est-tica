@@ -1,0 +1,8 @@
+baseURL = 'https://alberto.com/'
+languageCode = 'es'
+title = 'ALBERTORG'
+theme = 'bilberry'
+
+[params]
+  avatar = "/images/log02.png"  # Ruta relativa desde static/
+  customCSS = ["/css/custom.css"]

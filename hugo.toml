@@ -5,4 +5,3 @@ theme = 'bilberry'
 
 [params]
   avatar = "/images/log02.png"  # Ruta relativa desde static/
-  customCSS = ["/css/custom.css"]

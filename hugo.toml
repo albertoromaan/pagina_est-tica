@@ -5,3 +5,12 @@ theme = 'bilberry'
 
 [params]
   avatar = "/images/log02.png"  # Ruta relativa desde static/
+
+[build]
+  publish = "public"
+  command = "hugo"
+
+[build.environment]
+  HUGO_ENV = "production"
+  HUGO_ENABLEDRAFTS = "true"
+  GIT_SUBMODULES = "true"

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+echo "GENERANDO PUBLIC"
+
+hugo
+
+git fetch pagina_est-tica
+
+git merge pagina_est-tica/master
+
+echo "Subiendo contenido del repositorio principal...)"
+cd ~/github/albertorg
+echo "Añadiendo nuevos ficheros..."
+git add .
+echo "Guardando cambios..."
+read -p "Indica el nombre del commit: " COMMIT1
+git commit -am "$COMMIT1" || echo "No hay cambios para commitear."
+echo "Subiendo a GitHub..."
+git push pagina_est-tica master
+
+git fetch pagina_estatica_public
+
+git merge pagina_estatica_public/master
+
+echo "Subiendo contenido de la carpeta public... "
+cd public/
+echo "Añadiendo nuevos ficheros..."
+git add .
+echo "Guardando cambios..."
+read -p "Indica el nombre del commit para pagina_estatica_public: " COMMIT2
+git commit -am "$COMMIT2" || echo "No hay cambios para commitear en public."
+echo "Subiendo a GitHub..."
+git push pagina_estatica_public master
+
+echo "Proceso completado correctamente."
+
+read -p "¿Quiéres desplegar la página en local? (s/n): " RESPUESTA
+
+cd ..
+
+if [[ "$RESPUESTA" == "s" || "$RESPUESTA" == "S" ]]; then
+  echo "Desplegando página en local"
+  hugo server -D
+else
+  echo "Saliendo del programa..."
+fi
+

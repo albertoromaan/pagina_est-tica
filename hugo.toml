@@ -1,4 +1,4 @@
-baseURL = 'https://alberto.com/'
+baseURL = 'https://benevolent-bavarois-370a31.netlify.app/'
 languageCode = 'es'
 title = 'ALBERTORG'
 theme = 'bilberry'
